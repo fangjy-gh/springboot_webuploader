@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>fangjy.com</groupId>
+  <artifactId>springboot01</artifactId>
+  <version>1.0-SNAPSHOT</version>
+  <packaging>jar</packaging>
+
+  <!--从Spring Boot继承默认值-->
+  <parent>
+    <groupId> org.springframework.boot </groupId>
+    <artifactId> spring-boot-starter-parent </artifactId>
+    <version> 2.1.9.RELEASE </version>
+  </parent>
+
+  <!--为Web应用程序添加典型的依赖关系-->
+  <dependencies>
+    <dependency>
+      <groupId> org.springframework.boot </groupId>
+      <artifactId> spring-boot-starter-web </artifactId>
+    </dependency>
+    <!--热部署-->
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-devtools</artifactId>
+    </dependency>
+    <!--redis集成-->
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-data-redis</artifactId>
+    </dependency>
+    <!--添加test测试-->
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-test</artifactId>
+      <scope>test</scope>
+    </dependency>
+      <!--添加本地jar包-->
+      <dependency>
+          <groupId>it.sauronsoftware</groupId>
+          <artifactId>java</artifactId>
+        <version>1.0.2</version>
+        <scope>system</scope>
+        <systemPath>${basedir}/lib/jave-1.0.2.jar</systemPath>
+      </dependency>
+    <!-- java json解析依赖 -->
+    <dependency>
+      <groupId>com.fasterxml.jackson.core</groupId>
+      <artifactId>jackson-annotations</artifactId>
+      <version>2.9.3</version>
+    </dependency>
+    <dependency>
+      <groupId>com.fasterxml.jackson.core</groupId>
+      <artifactId>jackson-core</artifactId>
+      <version>2.9.3</version>
+    </dependency>
+    <dependency>
+      <groupId>com.fasterxml.jackson.core</groupId>
+      <artifactId>jackson-databind</artifactId>
+      <version>2.9.3</version>
+    </dependency>
+    <!-- openoffice转PDF依赖jar包-->
+    <dependency>
+      <groupId>com.artofsolving</groupId>
+      <artifactId>jodconverter</artifactId>
+      <version>2.2.1</version>
+    </dependency>
+  </dependencies>
+
+  <!--打包为可执行jar-->
+  <build>
+    <plugins>
+      <plugin>
+        <groupId> org.springframework.boot </groupId>
+        <artifactId> spring-boot-maven-plugin </artifactId>
+        <configuration>
+          <includeSystemScope>true</includeSystemScope>
+        </configuration>
+      </plugin>
+        <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-compiler-plugin</artifactId>
+            <configuration>
+                <source>8</source>
+                <target>8</target>
+            </configuration>
+        </plugin>
+    </plugins>
+  </build>
+
+</project>
